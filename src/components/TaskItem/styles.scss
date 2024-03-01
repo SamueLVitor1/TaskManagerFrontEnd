@@ -1,0 +1,46 @@
+.taskItem-container {
+  background-color: #323232;
+  min-width: 26rem;
+  max-width: 30rem;
+  border-radius: 6px;
+  border: 1px solid #18181b;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  h2 {
+    align-self: center;
+    font-size: 1.9rem;
+    color: #d4d4d8;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+  }
+
+  .completedTask {
+    background-color: #16a34a;
+    color: #e4e4e7;
+    font-size: 1.4rem;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+
+  .notCompletedTask {
+    background-color: #ef4444;
+    color: #e4e4e7;
+    font-size: 1.4rem;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+}
