@@ -6,6 +6,8 @@
   max-width: 960px;
   width: 100%;
 
+  
+
   header{
     display: flex;
     align-items: center;
@@ -31,7 +33,9 @@
   ul{
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
     list-style: none;
   }
 }

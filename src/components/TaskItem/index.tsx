@@ -2,10 +2,14 @@ import { Trash2 } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox"
 import "./styles.scss"
 
-export function TaskItem() {
+interface taskItemProps {
+  taskNumber: number;
+}
+
+export function TaskItem({ taskNumber }: taskItemProps) {
   return (
     <li className="taskItem-container">
-      <h2>Title</h2>
+      <h2>Tarefa {taskNumber}</h2>
 
       <footer>
         <p className="completedTask">Completa</p>

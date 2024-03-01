@@ -13,11 +13,16 @@ export function MainTasks() {
       </header>
 
       <ul>
-        <TaskItem />
-        <li>
-          fa
-        </li>
+        {Array.from({ length: 10 }).map((_, i) => {
+          return (
+            <TaskItem key={i} taskNumber={i} />
+          )
+        })}
+
+        <p>Adicionar</p>
       </ul>
+
+
     </main>
   );
 }
