@@ -1,0 +1,22 @@
+.addTask-container {
+  background-color: transparent;
+  min-width: 26rem;
+  cursor: pointer;
+  flex: 1;
+  max-width: 30rem;
+  border-radius: 6px;
+  border: 1px dashed #52525b;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0.7;
+  transition: transform 0.2s;
+
+  &:hover {
+    opacity: 1;
+    border-color: #a5a5a5;
+    transform: scale(1.01);
+  }
+}

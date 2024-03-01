@@ -1,6 +1,7 @@
 import { Plus } from "lucide-react";
 import "./styles.scss"
 import { TaskItem } from "../TaskItem";
+import { AddTask } from "../AddTask";
 
 export function MainTasks() {
   return (
@@ -19,7 +20,7 @@ export function MainTasks() {
           )
         })}
 
-        <p>Adicionar</p>
+        <AddTask />
       </ul>
 
 
