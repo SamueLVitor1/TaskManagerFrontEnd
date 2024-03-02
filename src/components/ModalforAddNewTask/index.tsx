@@ -30,10 +30,11 @@ function ModalforAddNewTask({ children }: ModalforAddNewTaskProps) {
         </form>
         <DialogFooter className="flex gap-8">
           <button
-            className="bg-zinc-600 px-3 rounded hover:brightness-75 hover:scale-105 transition-all">
+
+            className=" border border-zinc-500 px-3 rounded hover:scale-105 transition-all">
             Cancelar
           </button>
-          <button className="border border-zinc-500 px-3 rounded hover:scale-105 transition-all" type="submit">Adicionar</button>
+          <button className="bg-zinc-600 px-3 rounded hover:brightness-75 hover:scale-105 transition-all" type="submit">Adicionar</button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
