@@ -3,16 +3,24 @@ import { Checkbox } from "@/components/ui/checkbox"
 import "./styles.scss"
 
 interface taskItemProps {
-  taskNumber: number;
+  title: string;
+  isCompleted: boolean;
+  _v: number;
+  _id: string;
 }
 
-export function TaskItem({ taskNumber }: taskItemProps) {
+export function TaskItem({ title, isCompleted }: taskItemProps) {
+
+  console.log(isCompleted)
+
   return (
     <li className="taskItem-container">
-      <h2>Tarefa {taskNumber}</h2>
+      <h2>{title}</h2>
 
       <footer>
-        <p className="completedTask">Completa</p>
+        <p className={isCompleted ? "completedTask" : "notCompletedTask"}>
+          {isCompleted ? "Completa" : "Não Completa"}
+        </p>
 
         <div>
           <Checkbox />

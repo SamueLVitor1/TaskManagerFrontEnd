@@ -5,16 +5,18 @@ import { AddTask } from "../AddTask";
 import ModalforAddNewTask from "../ModalforAddNewTask";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { LoadComponent } from "../LoadComponent";
 
 interface TaskInterface {
   description: string;
   isCompleted: boolean;
-  __v: number;
+  _v: number;
   _id: string;
 }
 
 export function MainTasks() {
   const [tasks, setTasks] = useState<TaskInterface[]>([]);
+  const [isLoading, setIsLoading] = useState(true)
 
   const getTasksApi = async () => {
     try {
@@ -22,11 +24,16 @@ export function MainTasks() {
       setTasks(data)
     } catch (error) {
       console.log(error)
+    } finally {
+      setIsLoading(false)
     }
+
   }
 
   useEffect(() => {
-    getTasksApi()
+    setTimeout(() => {
+      getTasksApi()
+    }, 3000);
   }, []);
 
   return (
@@ -40,17 +47,22 @@ export function MainTasks() {
         } />
       </header>
 
-      <ul>
-        {tasks?.map((task, i) => {
-          return (
-            <TaskItem key={i} taskNumber={i} />
-          )
-        })}
-
-        <AddTask />
-      </ul>
-
-
+      {isLoading ? (
+        <LoadComponent />
+      ) : (
+        <ul>
+          {tasks?.map((task, i) => (
+            <TaskItem
+              key={i}
+              isCompleted={task.isCompleted}
+              _v={task._v}
+              _id={task._id}
+              title={task.description}
+            />
+          ))}
+          <AddTask />
+        </ul>
+      )}
     </main>
   );
 }
