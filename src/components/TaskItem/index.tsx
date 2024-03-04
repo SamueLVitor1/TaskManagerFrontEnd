@@ -14,20 +14,27 @@ export function TaskItem({ title, isCompleted }: taskItemProps) {
   console.log(isCompleted)
 
   return (
-    <li className="taskItem-container">
+    <li className={isCompleted ? "completedTask taskItem-container" : "notCompletedTask taskItem-container"}>
       <h2>{title}</h2>
 
-      <footer>
-        <p className={isCompleted ? "completedTask" : "notCompletedTask"}>
-          {isCompleted ? "Completa" : "Não Completa"}
+      <footer >
+        <Checkbox />
+
+        <p className="flex items-center gap-[6px] text-xl">
+          {isCompleted ?
+            <>
+              Concluída             </>
+            :
+            <>
+              Pendente 
+            </>
+          }
         </p>
 
-        <div>
-          <Checkbox />
-          <button>
-            <Trash2 size={18} color="#ef4444" />
-          </button>
-        </div>
+        <button>
+          <Trash2 size={18} color="#ef4444" />
+        </button>
+
       </footer>
     </li>
   );

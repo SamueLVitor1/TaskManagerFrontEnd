@@ -4,7 +4,6 @@
   flex: 1;
   max-width: 30rem;
   border-radius: 6px;
-  border: 1px solid #18181b;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -28,20 +27,12 @@
       gap: 12px;
     }
   }
+}
 
-  .completedTask {
-    background-color: #16a34a;
-    color: #e4e4e7;
-    font-size: 1.4rem;
-    border-radius: 6px;
-    padding: 4px 8px;
-  }
+.completedTask {
+  border:1px solid #16a34a;
+}
 
-  .notCompletedTask {
-    background-color: #ef4444;
-    color: #e4e4e7;
-    font-size: 1.4rem;
-    border-radius: 6px;
-    padding: 4px 8px;
-  }
+.notCompletedTask {
+  border:1px solid #ef4444;
 }
