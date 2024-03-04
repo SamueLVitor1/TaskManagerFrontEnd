@@ -1,0 +1,58 @@
+.aside-container {
+  position: relative;
+  width: 30rem;
+  background-color: #212121;
+  padding: 2.4rem;
+  height: 90vh;
+  border-radius: 16px;
+  border: 1px solid #3f3f46;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 8px;
+      padding: 4px 4rem;
+      border-radius: 6px;
+      width: 100%;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: #18181b;
+        filter: brightness(0.9);
+      }
+    }
+  }
+}
+
+.aside-container > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.aside-container > div:nth-child(2) {
+  margin-top: 20rem;
+}
+
+.aside-container > div:last-child {
+  margin-top: 20rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
