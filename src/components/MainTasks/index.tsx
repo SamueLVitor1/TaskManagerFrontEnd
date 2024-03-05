@@ -40,11 +40,13 @@ export function MainTasks() {
     <main className="mainTasks-container">
       <header>
         <h1>Todas as tarefas</h1>
-        <ModalforAddNewTask children={
-          <button>
-            <Plus size={16} color="#52525b" />
-          </button>
-        } />
+        <ModalforAddNewTask
+          getTasksApi={getTasksApi}
+          children={
+            <button>
+              <Plus size={16} color="#52525b" />
+            </button>
+          } />
       </header>
 
       {isLoading ? (
@@ -58,9 +60,10 @@ export function MainTasks() {
               _v={task._v}
               _id={task._id}
               title={task.description}
+              getTasksApi={getTasksApi}
             />
           ))}
-          <AddTask />
+          <AddTask getTasksApi={getTasksApi} />
         </ul>
       )}
     </main>

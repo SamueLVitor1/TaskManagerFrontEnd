@@ -9,13 +9,13 @@ import {
 import { Input } from "@/components/ui/input"
 import axios from "axios";
 import { ReactNode, useState } from "react";
-import { AlertSucess } from "../AlertSucess";
 
 interface ModalforAddNewTaskProps {
-  children: ReactNode
+  children: ReactNode,
+  getTasksApi: () => void;
 }
 
-function ModalforAddNewTask({ children }: ModalforAddNewTaskProps) {
+function ModalforAddNewTask({ children,  getTasksApi}: ModalforAddNewTaskProps) {
 
   const [nameTask, setNameTask] = useState<string>("")
 
@@ -30,7 +30,7 @@ function ModalforAddNewTask({ children }: ModalforAddNewTaskProps) {
         description: nameTask,
         isCompleted: false
       });
-      <AlertSucess />
+      getTasksApi()
     } catch (error) {
       console.error("Erro ao criar a tarefa:", error);
     }
@@ -38,47 +38,51 @@ function ModalforAddNewTask({ children }: ModalforAddNewTaskProps) {
     setNameTask("")
   }
 
+  
+
   return (
-    <Dialog >
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] text-zinc-300 bg-zinc-950">
-        <DialogHeader>
-          <DialogTitle className="text-4xl ">
-            Digite a nova tarefa:
-          </DialogTitle>
-        </DialogHeader>
+    <>
+      <Dialog >
+        <DialogTrigger asChild>
+          {children}
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px] text-zinc-300 bg-zinc-950">
+          <DialogHeader>
+            <DialogTitle className="text-4xl ">
+              Digite a nova tarefa:
+            </DialogTitle>
+          </DialogHeader>
 
-        <form className="gap-4 py-4" id="meuFormulario">
-          <Input
-            required
-            type="text"
-            value={nameTask}
-            placeholder="Digite a tarefa"
-            className="max-w-xs h-10 text-2xl py-6 "
-            onChange={(e) => setNameTask(e.target.value)}
-          />
-          <DialogFooter className="flex gap-8 mt-10">
-            <button
-              type="submit"
-              className=" border border-zinc-500 px-3 rounded hover:scale-105 transition-all"
-            >
-              Cancelar
-            </button>
+          <form className="gap-4 py-4" id="meuFormulario">
+            <Input
+              required
+              type="text"
+              value={nameTask}
+              placeholder="Digite a tarefa"
+              className="max-w-xs h-10 text-2xl py-6 "
+              onChange={(e) => setNameTask(e.target.value)}
+            />
+            <DialogFooter className="flex gap-8 mt-10">
+              <button
+                type="submit"
+                className=" border border-zinc-500 px-3 rounded hover:scale-105 transition-all"
+              >
+                Cancelar
+              </button>
 
-            <button
-              className="bg-zinc-600 px-3 rounded hover:brightness-75 hover:scale-105 transition-all"
-              type="submit"
-              onClick={(e) => handleCrateNewTask(e)}
-            >
-              Adicionar
-            </button>
-          </DialogFooter>
-        </form>
+              <button
+                className="bg-zinc-600 px-3 rounded hover:brightness-75 hover:scale-105 transition-all"
+                type="submit"
+                onClick={(e) => handleCrateNewTask(e)}
+              >
+                Adicionar
+              </button>
+            </DialogFooter>
+          </form>
 
-      </DialogContent>
-    </Dialog>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 
