@@ -2,6 +2,8 @@ import { Trash2 } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox"
 import "./styles.scss"
 import axios from "axios";
+import { useAlert } from "react-alert";
+import { useEffect, useState } from "react";
 
 interface taskItemProps {
   title: string;
@@ -13,14 +15,33 @@ interface taskItemProps {
 
 export function TaskItem({ title, isCompleted, _id, getTasksApi }: taskItemProps) {
 
-  console.log(isCompleted)
+  const alert = useAlert()
+
+  const [isChecked, setIschecked] = useState<boolean>(true)
+
+  useEffect(() => {
+    setIschecked(isCompleted)
+  }, [isCompleted])
 
   const handleTaskDeletion = async () => {
     try {
-      await axios.delete(`https://taskmanager-1a3i.onrender.com/tasks/${_id}`);
+      await axios.delete(`http://localhost:8000/tasks/${_id}`);
       getTasksApi()
+      alert.success("Tarefa deletada!")
     } catch (error) {
-      console.log(error);
+      alert.error("Algo deu errado :/ ")
+    }
+  };
+
+  const handleTaskCompletionChange = async (e) => {
+    try {
+      await axios.patch(`http://localhost:8000/tasks/${_id}`, {
+        isCompleted: !isChecked,
+      });
+      getTasksApi();
+      alert.success("A tarefa foi modificado com sucesso");
+    } catch (error) {
+      alert.error("Error ");
     }
   };
 
@@ -29,7 +50,11 @@ export function TaskItem({ title, isCompleted, _id, getTasksApi }: taskItemProps
       <h2>{title}</h2>
 
       <footer >
-        <Checkbox />
+        <Checkbox
+
+          checked={isChecked}
+          onClick={(e) => handleTaskCompletionChange(e)}
+        />
 
         <p className="flex items-center gap-[6px] text-xl">
           {isCompleted ?
@@ -42,7 +67,7 @@ export function TaskItem({ title, isCompleted, _id, getTasksApi }: taskItemProps
           }
         </p>
 
-        <button onClick={handleTaskDeletion}>
+        <button onClick={handleTaskDeletion} className="hover:brightness-75">
           <Trash2 size={18} color="#ef4444" />
         </button>
 

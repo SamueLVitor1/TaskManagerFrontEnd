@@ -25,12 +25,14 @@ function ModalforAddNewTask({ children, getTasksApi }: ModalforAddNewTaskProps) 
 
   async function handleCrateNewTask(event) {
     if (nameTask.length === 0) {
-      return
+      return alert.error(
+        "A tarefa precisa de uma descrição para ser adicionada"
+      );
     }
     event.preventDefault();
 
     try {
-      await axios.post("https://taskmanager-1a3i.onrender.com/tasks", {
+      await axios.post("http://localhost:8000/tasks/", {
         description: nameTask,
         isCompleted: false
       });
@@ -38,7 +40,7 @@ function ModalforAddNewTask({ children, getTasksApi }: ModalforAddNewTaskProps) 
       alert.success("Tarefa adicionada!");
       getTasksApi()
     } catch (error) {
-      console.error("Erro ao criar a tarefa:", error);
+      alert.error("Algo deu errado na criação da tarefa!");
     }
 
     setNameTask("")
