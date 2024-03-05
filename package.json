@@ -20,6 +20,8 @@
     "lucide-react": "^0.343.0",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
+    "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2",
     "react-dom": "^18.2.0",
     "sass": "^1.71.1",
     "scss": "^0.2.4",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.56",
+    "@types/react-alert": "^7.0.6",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
