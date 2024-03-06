@@ -32,7 +32,7 @@ function ModalforAddNewTask({ children, getTasksApi }: ModalforAddNewTaskProps) 
     event.preventDefault();
 
     try {
-      await axios.post("http://localhost:8000/tasks/", {
+      await axios.post("https://taskmanager-1a3i.onrender.com/tasks/", {
         description: nameTask,
         isCompleted: false
       });

@@ -25,7 +25,7 @@ export function TaskItem({ title, isCompleted, _id, getTasksApi }: taskItemProps
 
   const handleTaskDeletion = async () => {
     try {
-      await axios.delete(`http://localhost:8000/tasks/${_id}`);
+      await axios.delete(`https://taskmanager-1a3i.onrender.com/tasks/${_id}`);
       getTasksApi()
       alert.success("Tarefa deletada!")
     } catch (error) {
@@ -35,7 +35,7 @@ export function TaskItem({ title, isCompleted, _id, getTasksApi }: taskItemProps
 
   const handleTaskCompletionChange = async (e) => {
     try {
-      await axios.patch(`http://localhost:8000/tasks/${_id}`, {
+      await axios.patch(`https://taskmanager-1a3i.onrender.com/tasks/${_id}`, {
         isCompleted: !isChecked,
       });
       getTasksApi();

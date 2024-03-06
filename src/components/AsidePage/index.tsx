@@ -1,6 +1,7 @@
 import { AlertOctagon, CheckSquare, Home, LogOut } from "lucide-react";
 import "./styles.scss"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Link } from "react-router-dom";
 
 
 export function AsidePage() {
@@ -19,21 +20,27 @@ export function AsidePage() {
       </div>
       <div>
         <ul>
-          <li>
-            <Home size={20} />
-            All tasks
-          </li>
-          <li>
-            <CheckSquare size={20} />
-            Completed tasks
-          </li>
+          <Link to="/" >
+            <li>
+              <Home size={20} />
+              All tasks
+            </li>
+          </Link>
+
+          <Link to={"/taskCompleted"}>
+            <li>
+              <CheckSquare size={20} />
+              Completed tasks
+            </li>
+          </Link>
+
           <li>
             <AlertOctagon size={20} />
             Incompleted tasks</li>
         </ul>
       </div>
       <div>
-        <LogOut size={20}/>
+        <LogOut size={20} />
         Sign out
       </div>
     </aside>

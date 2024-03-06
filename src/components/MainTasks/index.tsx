@@ -20,7 +20,7 @@ export function MainTasks() {
 
   const getTasksApi = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8000/tasks")
+      const { data } = await axios.get("https://taskmanager-1a3i.onrender.com/tasks")
       setTasks(data)
     } catch (error) {
       console.log(error)
